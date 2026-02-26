@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>حكايتنا ❤️</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap');
+
+        body {
+            margin: 0;
+            font-family: 'Cairo', sans-serif;
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('romantic-bg.jpg') no-repeat center center fixed;
+            background-size: cover;
+            color: white;
+            text-align: center;
+        }
+
+        /* عداد الوقت */
+        .timer-section {
+            padding: 40px 10px;
+            background: rgba(0, 0, 0, 0.6);
+            backdrop-filter: blur(8px);
+            margin-bottom: 30px;
+            border-bottom: 2px solid rgba(255, 77, 109, 0.3);
+        }
+
+        .timer-display {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            flex-wrap: wrap;
+            margin-top: 15px;
+        }
+
+        .time-unit {
+            background: rgba(255, 77, 109, 0.85);
+            padding: 10px;
+            border-radius: 12px;
+            min-width: 65px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+        }
+
+        .time-unit span { display: block; font-size: 20px; font-weight: bold; }
+        .time-unit label { font-size: 12px; }
+
+        /* الجاليري */
+        .gallery {
+            max-width: 500px;
+            margin: 0 auto;
+            padding: 15px;
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.1);
+            margin-bottom: 35px;
+            border-radius: 20px;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.4);
+        }
+
+        .card img, .card video { width: 100%; display: block; }
+
+        .card-text {
+            padding: 20px;
+            line-height: 1.7;
+            font-size: 16px;
+            background: rgba(0,0,0,0.5);
+            text-align: justify;
+        }
+
+        /* الزرار */
+        .btn-main {
+            background: #ff4d6d;
+            color: white;
+            border: none;
+            padding: 15px 45px;
+            border-radius: 50px;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+            margin-bottom: 50px;
+            font-family: 'Cairo';
+            box-shadow: 0 5px 20px rgba(255, 77, 109, 0.5);
+            transition: 0.3s;
+        }
+
+        .btn-main:hover { transform: scale(1.05); background: #ff758f; }
+
+        /* الرسالة النهائية */
+        #final-message {
+            display: none;
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0,0,0,0.96);
+            z-index: 2000;
+            overflow-y: auto;
+            padding: 30px 15px;
+        }
+
+        .msg-content {
+            max-width: 600px;
+            margin: 0 auto;
+            line-height: 1.9;
+            font-size: 17px;
+            text-align: center;
+            color: #ffeef0;
+            padding-bottom: 50px;
+        }
+
+        .tiktok-btn {
+            background: #fff;
+            color: #000;
+            padding: 12px 30px;
+            border-radius: 25px;
+            text-decoration: none;
+            display: inline-block;
+            margin-top: 25px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body onclick="playMusic()">
+
+    <audio id="bgMusic" loop>
+        <source src="music.mp3" type="audio/mpeg">
+    </audio>
+
+    <section class="timer-section">
+        <h2 style="margin:0; font-size: 22px;">بقالنا مع بعض ❤️</h2>
+        <div class="timer-display" id="timer"></div>
+    </section>
+
+    <div class="gallery">
+        <div class="card">
+            <img src="1.jpg">
+            <div class="card-text">إنتِ مش بس حبيبتي… إنتِ الحاجة الوحيدة اللي لما بتيجي في بالي الدنيا كلها بتهدى 🤍 وجودك في حياتي نعمة بدعي ربنا يديمها، وضحكتك أمان لقلبي، وصوتك طمأنينة لروحي. كل يوم بحبك أكتر من اللي قبله، وكل يوم بتأكد إني اخترت صح. ربنا يخليكي ليا وما يحرمنيش منك أبداً ❤️✨</div>
+        </div>
+
+        <div class="card">
+            <img src="2.jpg">
+            <div class="card-text">بحبك مش بس عشان إنتِ جميلة… بحبك عشان قلبي بيهدى أول ما يشوفك 🤍 عشان وجودك بيخلّي أي يوم صعب يعدّي، وأي زعل يهون. إنتِ اختصار الراحة، واختصار الفرحة، واختصار الدنيا كلها بالنسبالي ❤️ ربنا يديمك في حياتي وما يكتبلي يوم من غيرك ✨</div>
+        </div>
+
+        <div class="card">
+            <img src="3.jpg">
+            <div class="card-text">إنتِ الحاجة الوحيدة اللي لما أتكلم عنها قلبي يسبق لساني ❤️ كل حاجة فيكي بتطمني… ضحكتك، كلامك، حتى سكوتك 🤍 وجودك جمبي مكفيني عن الدنيا كلها، وكفاية عليّا إني أقولك إني بحبك قد عمري كله ✨</div>
+        </div>
+
+        <div class="card">
+            <img src="4.jpg">
+            <div class="card-text">بحبك عشان إنتِ بسيطة وطبيعية… ومن غير ما تعملي حاجة بتسعديني ❤️ لما بتيجي في بالي ببتسم لوحدي، ولما بسمع صوتك بحس إن الدنيا لسه بخير 🤍 إنتِ نصي الحلو، وأجمل صدفة حصلتلي، وأحلى حاجة ربنا كتبها في عمري ✨</div>
+        </div>
+
+        <div class="card">
+            <video controls>
+                <source src="5.mp4" type="video/mp4">
+            </video>
+        </div>
+
+        <button class="btn-main" onclick="showMsg()">دوسي هنا يا عمري ❤️</button>
+    </div>
+
+    <div id="final-message">
+        <div class="msg-content">
+            عايز أقولك إنك مش مجرد بنت بحبها، إنتِ الحياة اللي اتمنيتها من سنين، إنتِ الحلم اللي صحيت عليه ولقيته قدامي، إنتِ الأمان اللي قلبي ارتاح فيه، والدفا اللي بحس بيه. إنتِ أجمل من كل الكلام اللي بيتقال، وأحن من كل حضن اتخيلته. إنتِ مش بس حبيبتي، إنتِ دنيتي، إنتِ أخت روحي، إنتِ ملاكي اللي ربنا بعتهولي ❤️🌍 من أول ما عرفتك وأنا مش زي زمان، كل حاجة بقت ليها طعم تاني، الضحكة بقت من القلب، والدنيا بقت فيها أمل. بقيت بصحى وأنا مبسوط عشان إنتِ في حياتي، بقيت بحب اليوم اللي بيعدي وإنتِ فيه. بقيت بضحك على حاجات بسيطة لأن وجودك بيكفيني. بقيت بدعي من قلبي إنك تفضلي معايا العمر كله 💕🏡 إنتِ اللي غيرتيني للأحسن، إنتِ اللي خلتيني أعرف يعني إيه حب حقيقي، إنتِ النور اللي دخل قلبي ومفارقنيش، إنتِ السكينة اللي بتهدى قلبي وقت الزعل، لما بشوفك بضحك من غير ما أحس، لما بسمع صوتك بهدى، كل حاجة جوايا بتتغير لما تبقي جنبي. مسحتِ قلبي من وجعه وحشيته، وحسيتيني إني أسعد إنسان. إنتِ كل حاجة حلوة حصلتلي، إنتِ اللي بخاف عليها من الهوا، إنتِ اللي مش عايز منها غير رضاها 💍❤️ بحب صوتك، بحب ضحكتك، بحب تفاصيلك، بحب عصبيتك، بحب طريقتك وإنتِ بتزعلي وبتصالحي بعدها زي الأطفال. بحب خوفك عليا، بحب اهتمامك بيا، بحب عيونك وهي بتلمع لما أقولك بحبك. إنتِ سبب ضحكتي في الزعل، سندي في الوجع، كفاية إنك في حياتي. وجودك معجزة حقيقية، وشفا لقلبي وروحي. كل لحظة معاكي كأنها أول مرة، وكل يوم بشكر ربنا إنك معايا. بحبك أكتر من كل الكلام، وأكتر من أي وصف، وإنتِ أغلى من الدنيا كلها. نفسي أفضل جنبك طول العمر، وأفضل أكتبلك وأقولك قد إيه أنا بحبك. يا كل حاجة حلوة حصلتلي 💕🏡❤️
+            <br>
+            <a href="https://vt.tiktok.com/ZSmp4F2SQ/" class="tiktok-btn">دوسي هنا</a>
+        </div>
+    </div>
+
+    <script>
+        function playMusic() {
+            var audio = document.getElementById("bgMusic");
+            audio.play().catch(e => console.log("Music play blocked until interaction"));
+        }
+
+        function updateTimer() {
+            const startDate = new Date("2023-06-08T00:00:00");
+            const now = new Date();
+            
+            let years = now.getFullYear() - startDate.getFullYear();
+            let months = now.getMonth() - startDate.getMonth();
+            let days = now.getDate() - startDate.getDate();
+
+            if (days < 0) {
+                months--;
+                days += new Date(now.getFullYear(), now.getMonth(), 0).getDate();
+            }
+            if (months < 0) {
+                years--;
+                months += 12;
+            }
+
+            const diffTime = now - startDate;
+            const hours = Math.floor((diffTime / (1000 * 60 * 60)) % 24);
+            const minutes = Math.floor((diffTime / (1000 * 60)) % 60);
+            const seconds = Math.floor((diffTime / 1000) % 60);
+
+            document.getElementById("timer").innerHTML = `
+                <div class="time-unit"><span>${years}</span><label>سنة</label></div>
+                <div class="time-unit"><span>${months}</span><label>شهر</label></div>
+                <div class="time-unit"><span>${days}</span><label>يوم</label></div>
+                <div class="time-unit"><span>${hours}</span><label>ساعة</label></div>
+                <div class="time-unit"><span>${minutes}</span><label>دقيقة</label></div>
+                <div class="time-unit"><span>${seconds}</span><label>ثانية</label></div>
+            `;
+        }
+
+        setInterval(updateTimer, 1000);
+        updateTimer();
+
+        function showMsg() {
+            document.getElementById("final-message").style.display = "block";
+            window.scrollTo(0, 0);
+        }
+    </script>
+</body>
+</html>

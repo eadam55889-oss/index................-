@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>صفحة القفل الرومانسية</title>
+    <style>
+        /* التنسيق العام */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            /* استخدام اسم الخلفية اللي اتفقنا عليه */
+            background: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), 
+                        url('romantic-bg.jpg') no-repeat center center fixed;
+            background-size: cover;
+            overflow: hidden;
+        }
+
+        /* حاوية القفل */
+        .lock-container {
+            background: rgba(255, 255, 255, 0.2); /* تأثير الزجاج */
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            padding: 50px 30px;
+            border-radius: 30px;
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            text-align: center;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+            width: 90%;
+            max-width: 350px;
+            animation: fadeIn 1.5s ease-in-out;
+        }
+
+        h2 {
+            color: #ffffff;
+            font-size: 24px;
+            margin-bottom: 25px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        /* خانة الباسورد */
+        input[type="password"] {
+            width: 100%;
+            padding: 15px;
+            border-radius: 25px;
+            border: none;
+            outline: none;
+            background: rgba(255, 255, 255, 0.9);
+            font-size: 18px;
+            text-align: center;
+            margin-bottom: 20px;
+            color: #333;
+            box-shadow: inset 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        /* زر الدخول */
+        button {
+            width: 100%;
+            padding: 12px;
+            border-radius: 25px;
+            border: none;
+            background: #ff4d6d; /* لون رومانسي وردي */
+            color: white;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(255, 77, 109, 0.4);
+        }
+
+        button:hover {
+            background: #ff758f;
+            transform: translateY(-2px);
+        }
+
+        /* رسالة الخطأ */
+        #error-msg {
+            margin-top: 15px;
+            color: #fff1f2;
+            font-size: 14px;
+            font-weight: 500;
+            min-height: 20px;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+        }
+
+        /* أنيميشن الظهور */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="lock-container">
+        <h2>أدخل السر ❤️</h2>
+        <input type="password" id="password" placeholder="8/6/2023">
+        <button onclick="validate()">فتح القلب</button>
+        <p id="error-msg"></p>
+    </div>
+
+    <script>
+        function validate() {
+            const passInput = document.getElementById('password').value;
+            const errorMsg = document.getElementById('error-msg');
+
+            // الباسورد الافتراضي هو 1234 (تقدر تغيره)
+            if (passInput === "8/6/2023") {
+                window.location.href = "hj.html";
+            } else {
+                errorMsg.innerText = "مش ده.. حاول تاني يا جميل 💔";
+                document.getElementById('password').value = ""; // مسح الخانة
+            }
+        }
+
+        // السماح بالدخول عند الضغط على زر Enter
+        document.getElementById('password').addEventListener('keypress', function (e) {
+            if (e.key === 'Enter') {
+                validate();
+            }
+        });
+    </script>
+
+</body>
+</html>
